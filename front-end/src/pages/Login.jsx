@@ -17,12 +17,14 @@ export default function Login() {
     <div>
       <input
         data-testid="common_login__input-email"
+        placeholder="email@tryber.com.br"
         type="text"
         value={ inputUser }
         onChange={ ({ target: { value } }) => setInputUser(value) }
       />
       <input
         data-testid="common_login__input-password"
+        placeholder="*************"
         type="password"
         value={ inputPassword }
         onChange={ ({ target: { value } }) => setInputPassword(value) }
