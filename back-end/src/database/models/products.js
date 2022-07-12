@@ -6,8 +6,8 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
     },
     name: DataTypes.STRING,
-    price: DataTypes.DECIMAL,
-    urlImage: DataTypes.STRING,
+    price: DataTypes.DECIMAL(4,2),
+    urlImage: { type: DataTypes.STRING, field: 'url_image' },
   }, {
     timestamps: false,
   });
