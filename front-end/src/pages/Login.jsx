@@ -42,17 +42,17 @@ export default function Login() {
           Login
         </button>
         {
-            (failedTryLogin)
-              ? (
-                <p data-testid="common_login__element-invalid-email">
-                  {
-                    `O endereço de e-mail ou a senha não estão corretos.
-                    Por favor, tente novamente.`
-                  }
-                </p>
-              )
-              : null
-          }
+          (failedTryLogin)
+            ? (
+              <p data-testid="common_login__element-invalid-email">
+                {
+                  `O endereço de e-mail ou a senha não estão corretos.
+                  Por favor, tente novamente.`
+                }
+              </p>
+            )
+            : null
+        }
         <button
           data-testid="common_login__button-register"
           type="button"

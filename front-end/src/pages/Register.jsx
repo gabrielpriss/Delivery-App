@@ -49,17 +49,17 @@ export default function Register() {
           CADASTRAR
         </button>
         {
-            (failedTryLogin)
-              ? (
-                <p data-testid="common_register__element-invalid_register">
-                  {
-                    `O endereço de e-mail ou a senha não são validos.
-                    Por favor, tente novamente.`
-                  }
-                </p>
-              )
-              : null
-          }
+          (failedTryLogin)
+            ? (
+              <p data-testid="common_register__element-invalid_register">
+                {
+                  `O endereço de e-mail ou a senha não são validos.
+                  Por favor, tente novamente.`
+                }
+              </p>
+            )
+            : null
+        }
       </div>
     </div>
   );
