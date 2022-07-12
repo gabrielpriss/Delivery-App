@@ -7,6 +7,7 @@ export default function Register() {
   const [registerName, setRegisterName] = useState('');
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
+  const [failedTryLogin, setFailedTryLogin] = useState(false);
 
   const validateRegister = () => {
     const emailValidation = (/\S+@\S+\.\S+/).test(registerEmail);
@@ -47,6 +48,18 @@ export default function Register() {
         >
           CADASTRAR
         </button>
+        {
+            (failedTryLogin)
+              ? (
+                <p data-testid="common_register__element-invalid_register">
+                  {
+                    `O endereço de e-mail ou a senha não são validos.
+                    Por favor, tente novamente.`
+                  }
+                </p>
+              )
+              : null
+          }
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ export default function Login() {
   const minPasswordLength = 6;
   const [inputUser, setInputUser] = useState('');
   const [inputPassword, setInputPassword] = useState('');
+  const [failedTryLogin, setFailedTryLogin] = useState(false);
 
   const validateLogin = () => {
     const emailValidation = (/\S+@\S+\.\S+/).test(inputUser);
@@ -40,6 +41,18 @@ export default function Login() {
         >
           Login
         </button>
+        {
+            (failedTryLogin)
+              ? (
+                <p data-testid="common_login__element-invalid-email">
+                  {
+                    `O endereço de e-mail ou a senha não estão corretos.
+                    Por favor, tente novamente.`
+                  }
+                </p>
+              )
+              : null
+          }
         <button
           data-testid="common_login__button-register"
           type="button"
