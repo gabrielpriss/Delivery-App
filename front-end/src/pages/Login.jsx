@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import '../css/login.css';
 import axios from 'axios';
 
@@ -28,7 +28,8 @@ export default function Login() {
 
     axios.post(url, userLogin)
       .then((response) => {
-        localStorage.setItem('user', JSON.stringify(response.data));
+        localStorage.setItem('user', JSON
+          .stringify(response.data));
         setIsLogged(true);
       })
       .catch(setFailedTryLogin(true));
@@ -38,7 +39,7 @@ export default function Login() {
     setFailedTryLogin(false);
   }, [inputUser, inputPassword]);
 
-  if (isLogged) return history.push('/produtos');
+  if (isLogged) return <Redirect to="/produtos" />;
 
   return (
     <div className="login">
