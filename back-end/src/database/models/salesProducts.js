@@ -1,5 +1,5 @@
-module.expores = (sequelize, DataTypes) => {
-  const salesProducts = sequelize.define('selesProducts', {
+module.exports = (sequelize, DataTypes) => {
+  const salesProducts = sequelize.define('salesProducts', {
     quantity: DataTypes.INTEGER,
   });
 
