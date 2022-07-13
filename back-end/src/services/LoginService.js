@@ -1,14 +1,14 @@
 const { users } = require('../database/models');
-const { hash } = require('./crypto')
+const { hash } = require('./crypto');
 
 const login = async (userData) => {
-  const { email, password } = userData
+  const { email, password } = userData;
 
-  const hashpass = hash(password)
+  const hashpass = hash(password);
   
   const user = await users.findOne({
     where: {
-      email: email,
+      email,
     },
   });
   

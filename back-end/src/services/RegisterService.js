@@ -2,7 +2,6 @@ const { users } = require('../database/models');
 const crypto = require('./crypto');
 
 const register = async ({ email, password, name }) => {
-
     const result = await users.findOne({
         where: {
             email,
@@ -12,7 +11,7 @@ const register = async ({ email, password, name }) => {
     if (result) {
         return (
             'error'
-        )
+        );
     }
 
     const hashedPassword = await crypto.hash(password);

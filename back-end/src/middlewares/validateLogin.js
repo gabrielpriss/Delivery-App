@@ -2,7 +2,7 @@ const validateEmail = (req, res, next) => {
     const { email } = req.body;
     
     const trueEmail = email.match(
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
     );
 
     if (!trueEmail) {
@@ -19,7 +19,6 @@ const validateEmail = (req, res, next) => {
     
     next();
 };
-
 
 const validatePassword = (req, res, next) => {
     const { password } = req.body;

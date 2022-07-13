@@ -4,16 +4,16 @@ const register = async (req, res, next) => {
   try {
     const { email, password, name } = req.body;
 
-    const register = await RegisterService.register({ email, password, name });
+    const regist = await RegisterService.register({ email, password, name });
 
-    if (register == 'error') {
-      return res.status(409).json({message: 'already registred'});
+    if (regist === 'error') {
+      return res.status(409).json({ message: 'already registred' });
     }
 
-    return res.status(200).json(register);
+    return res.status(200).json(regist);
   } catch (error) {
     next(error);
   }
-}
+};
 
 module.exports = { register };
