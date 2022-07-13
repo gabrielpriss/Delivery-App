@@ -1,19 +1,45 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Redirect, useHistory } from 'react-router-dom';
 import '../css/login.css';
+import axios from 'axios';
 
 export default function Login() {
+  const url = 'http://localhost:3005/login';
   const history = useHistory();
   const minPasswordLength = 6;
   const [inputUser, setInputUser] = useState('');
   const [inputPassword, setInputPassword] = useState('');
   const [failedTryLogin, setFailedTryLogin] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
 
   const validateLogin = () => {
     const emailValidation = (/\S+@\S+\.\S+/).test(inputUser);
     const passwordValidation = inputPassword.length >= minPasswordLength;
     return !emailValidation || !passwordValidation;
   };
+
+  const login = async (event) => {
+    event.preventDefault();
+
+    const userLogin = {
+      email: inputUser,
+      senha: inputPassword,
+    };
+
+    axios.post(url, userLogin)
+      .then((response) => {
+        localStorage.setItem('user', JSON
+          .stringify(response.data));
+        setIsLogged(true);
+      })
+      .catch(setFailedTryLogin(true));
+  };
+
+  useEffect(() => {
+    setFailedTryLogin(false);
+  }, [inputUser, inputPassword]);
+
+  if (isLogged) return <Redirect to="/produtos" />;
 
   return (
     <div className="login">
@@ -37,7 +63,7 @@ export default function Login() {
           data-testid="common_login__button-login"
           disabled={ validateLogin() }
           type="button"
-          onClick={ validateLogin }
+          onClick={ (event) => login(event) }
         >
           Login
         </button>
