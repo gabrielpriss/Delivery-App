@@ -37,6 +37,9 @@ export default function Login() {
 
   useEffect(() => {
     setFailedTryLogin(false);
+    if (!localStorage.getItem('user')) {
+      localStorage.setItem('user');
+    }
   }, [inputUser, inputPassword]);
 
   if (isLogged) return <Redirect to="/produtos" />;
