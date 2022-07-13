@@ -6,10 +6,16 @@ const update = async (req, res, next) => {
     const { userEmail, sellerEmail, totalPrice, deliveryAddress,
       deliveryNumber, saleDate, status } = req.body;
 
-    const { result, message } = await service.update(id, { userEmail, sellerEmail, totalPrice,
-      deliveryAddress, deliveryNumber, saleDate, status });
+    const { result, message } = await service.update(id, {
+      userEmail,
+      sellerEmail,
+      totalPrice,
+      deliveryAddress,
+      deliveryNumber,
+      saleDate,
+      status });
 
-    if(message) return res.status(400).json({ message });
+    if (message) return res.status(400).json({ message });
 
     return res.status(200).json(result);
   } catch (err) {

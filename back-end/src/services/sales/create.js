@@ -2,16 +2,12 @@ const { sales, users } = require('../../database/models');
 
 const create = async (sale) => {
   const {
-    userEmail,
-    sellerEmail,
-    totalPrice,
-    deliveryAddress,
-    deliveryNumber,
-    saleDate,
+    userEmail, sellerEmail,
+    totalPrice, deliveryAddress,
+    deliveryNumber, saleDate,
     status } = sale;
 
-  const user = await users.findOne({
-    where: { email: userEmail } });
+  const user = await users.findOne({ where: { email: userEmail } });
 
   const seller = await users.findOne({
     where: { email: sellerEmail } });

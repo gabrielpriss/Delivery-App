@@ -7,7 +7,6 @@ const loginRoutes = express.Router();
 loginRoutes.post('/',
   middlewares.validateEmail,
   middlewares.validatePassword,
-  loginController.login
-);
+  loginController.login);
 
 module.exports = loginRoutes;
