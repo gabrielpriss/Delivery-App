@@ -32,7 +32,7 @@ module.exports = {
         onUpdate: 'CASCADE',
     },
     totalPrice: {
-      type: Sequelize.DECIMAL,
+      type: Sequelize.DECIMAL(6, 2),
       field: 'total_price'
     },
     deliveryAddress: {

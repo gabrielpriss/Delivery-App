@@ -1,4 +1,4 @@
-const service = require('../../services/salesProducts/delete');
+const service = require('../../services/sales/delete');
 
 const deleteId = async (req, res, next) => {
   try {

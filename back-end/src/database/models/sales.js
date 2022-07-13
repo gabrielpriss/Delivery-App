@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE',
   },
-    totalPrice: { type: DataTypes.DECIMAL, field: 'total_price' },
+    totalPrice: { type: DataTypes.DECIMAL(6, 2), field: 'total_price' },
     deliveryAddress: { type: DataTypes.STRING, field: 'delivery_address'},
     deliveryNumber: { type: DataTypes.STRING, field: 'delivery_number' },
     saleDate:  { type: DataTypes.DATE, field: 'sale_date' },
