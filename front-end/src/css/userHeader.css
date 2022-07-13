@@ -1,10 +1,10 @@
 .user-header {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
   background-color: green;
-  height: 80px;
   color: white;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
 }
 
 .user-first-container, .user-second-container {
