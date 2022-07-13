@@ -5,24 +5,24 @@ module.exports = {
       [
         {
           id: 1,
-          name: 'Admin',
-          email: 'admin@teste.com',
-          password: '21232f297a57a5a743894a0e4a801fc3',
-          role: 'admin'
+          name: 'Delivery App Admin',
+          email: 'adm@deliveryapp.com',
+          password: 'a4c86edecc5aee06eff8fdeda69e0d04',
+          role: 'administrador'
         },
         {
           id: 2,
-          name: 'Seller',
-          email: 'seller@teste.com',
-          password: '64c9ac2bb5fe46c3ac32844bb97be6bc',
+          name: 'Fulana Pereira',
+          email: 'fulana@deliveryapp.com',
+          password: '3c28d2b0881bf46457a853e0b07531c6',
           role: 'seller'
         },
         {
           id: 3,
-          name: 'Customer',
-          email: 'customer@teste.com',
-          password: '91ec1f9324753048c0096d036a694f86',
-          role: 'custumer'
+          name: 'Cliente Zé Birita',
+          email: 'zebirita@email.com',
+          password: '1c37466c159755ce1fa181bd247cb925',
+          role: 'customer'
         }
       ], { timestamps: false}
     );
