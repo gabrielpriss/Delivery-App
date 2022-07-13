@@ -6,15 +6,27 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
     },
     userId: {
+      allowNull: false,
       type: DataTypes.INTEGER,
-      foreignKey: true,
-      field: 'user_id'
+      references: {
+        model: "users",
+        key: "id",
+      },
+      field: 'user_id',
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
     },
     sellerId: {
+      allowNull: false,
       type: DataTypes.INTEGER,
-      foreignKey: true,
-      field: 'seller_id'
-    },
+      references: {
+        model: "users",
+        key: "id",
+      },
+      field: 'seller_id',
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
+  },
     totalPrice: { type: DataTypes.DECIMAL, field: 'total_price' },
     deliveryAddress: { type: DataTypes.STRING, field: 'delivery_address'},
     deliveryNumber: { type: DataTypes.STRING, field: 'delivery_number' },
