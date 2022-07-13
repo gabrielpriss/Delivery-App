@@ -1,7 +1,7 @@
-const { products } = require('../../database/models');
+const { sales } = require('../../database/models');
 
 const getById = async (id) => {
-  const result = await products.findByPk(id);
+  const result = await sales.findOne({ where: { id } });
 
   if (!result) return { message: 'produto não existe' };
 

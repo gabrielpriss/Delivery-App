@@ -1,16 +1,14 @@
 const express = require('express');
-const getAllproductSalesController = require('../controllers/salesProducts/getAll');
-const createproductSalesController = require('../controllers/salesProducts/create');
-const getByIdproductSalesController = require('../controllers/salesProducts/getById');
-const updateproductSalesController = require('../controllers/salesProducts/update');
-const deleteproductSalesController = require('../controllers/salesProducts/delete');
+const { getAllProductSalesController, createProductSalesController,
+  getByIdProductSalesController, updateProductSalesController,
+  deleteProductSalesController } = require('../controllers/salesProducts');
 
 const productsSalesRoutes = express.Router();
 
-productsSalesRoutes.get('/', getAllproductSalesController.getAll);
-productsSalesRoutes.get('/:id', getByIdproductSalesController.getById);
-productsSalesRoutes.put('/:id', updateproductSalesController.update);
-productsSalesRoutes.post('/', createproductSalesController.create);
-productsSalesRoutes.delete('/:id', deleteproductSalesController.deleteId);
+productsSalesRoutes.get('/', getAllProductSalesController.getAll);
+productsSalesRoutes.get('/:id', getByIdProductSalesController.getById);
+productsSalesRoutes.put('/:id', updateProductSalesController.update);
+productsSalesRoutes.post('/', createProductSalesController.create);
+productsSalesRoutes.delete('/:id', deleteProductSalesController.deleteId);
 
 module.exports = productsSalesRoutes;
