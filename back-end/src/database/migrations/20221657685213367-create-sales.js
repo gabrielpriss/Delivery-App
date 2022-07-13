@@ -16,9 +16,9 @@ module.exports = {
         model: "users",
         key: "id",
       },
-      onUpdate: "CASCADE",
-      onDelete: "CASCADE",
-      field: 'user_id'
+      field: 'user_id',
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
     },
     sellerId: {
         allowNull: false,
@@ -27,9 +27,9 @@ module.exports = {
           model: "users",
           key: "id",
         },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
-        field: 'seller_id'
+        field: 'seller_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
     },
     totalPrice: {
       type: Sequelize.DECIMAL,
@@ -45,7 +45,7 @@ module.exports = {
     },
     saleDate: {
       type: Sequelize.DATE,
-      field: 'sale_dale'
+      field: 'sale_date'
     },
     status: {
       type: Sequelize.STRING,
