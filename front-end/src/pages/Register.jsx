@@ -7,7 +7,7 @@ export default function Register() {
   const [registerName, setRegisterName] = useState('');
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
-  const [failedTryLogin, /* setFailedTryLogin */] = useState(false);
+  const [failedTryLogin/* , setFailedTryLogin */] = useState(false);
 
   const validateRegister = () => {
     const emailValidation = (/\S+@\S+\.\S+/).test(registerEmail);

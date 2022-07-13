@@ -1,15 +1,15 @@
 .user-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 80px;
+  justify-content: space-between;
   background-color: green;
+  height: 80px;
   color: white;
 }
 
 .user-first-container, .user-second-container {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-around;
   width: 40%;
 }

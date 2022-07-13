@@ -9,12 +9,12 @@
 }
 
 .product-card {
-  flex-basis: 20%;
   display: flex;
+  flex-basis: 20%;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   border: 1px solid #e2e2e2;
-  margin: 15px;
   border-radius: 15px;
+  margin: 15px;
 }
