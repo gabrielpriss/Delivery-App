@@ -4,7 +4,7 @@ import '../css/login.css';
 import axios from 'axios';
 
 export default function Login() {
-  const url = 'http://localhost:3005/login';
+  const url = 'http://localhost:3001/login';
   const history = useHistory();
   const minPasswordLength = 6;
   const [inputUser, setInputUser] = useState('');
@@ -23,26 +23,27 @@ export default function Login() {
 
     const userLogin = {
       email: inputUser,
-      senha: inputPassword,
+      password: inputPassword,
     };
 
+    console.log(userLogin);
+
     axios.post(url, userLogin)
-      .then((response) => {
-        localStorage.setItem('user', JSON
-          .stringify(response.data));
+      .then((data) => {
+        localStorage.setItem('user', JSON.stringify(data));
         setIsLogged(true);
       })
-      .catch(setFailedTryLogin(true));
+      .catch(() => setFailedTryLogin(true));
   };
 
   useEffect(() => {
     setFailedTryLogin(false);
     if (!localStorage.getItem('user')) {
-      localStorage.setItem('user');
+      localStorage.setItem('user', JSON.stringify([]));
     }
   }, [inputUser, inputPassword]);
 
-  if (isLogged) return <Redirect to="/produtos" />;
+  if (isLogged) return <Redirect to="customer/products" />;
 
   return (
     <div className="login">

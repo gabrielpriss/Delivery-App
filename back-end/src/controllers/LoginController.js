@@ -4,13 +4,13 @@ const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
-    const result = await loginService.login({ email, password });
+    const { user, message } = await loginService.login({ email, password });
 
-    if (!result) {
-      return res.status(400).json({ message: 'User not found' });
+    if (message) {
+      return res.status(404).json({ message });
     }
 
-    return res.status(200).json(result);
+    return res.status(200).json(user);
   } catch (error) {
     next(error);
   }

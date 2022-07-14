@@ -1,19 +1,40 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import '../css/register.css';
 
 export default function Register() {
+  const url = 'http://localhost:3001/register';
+  const history = useHistory();
   const minPasswordLength = 6;
   const minNameLength = 12;
   const [registerName, setRegisterName] = useState('');
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
-  const [failedTryLogin/* , setFailedTryLogin */] = useState(false);
+  const [failedTryRegister, setFailedTryRegister] = useState(false);
 
   const validateRegister = () => {
     const emailValidation = (/\S+@\S+\.\S+/).test(registerEmail);
     const passwordValidation = registerPassword.length >= minPasswordLength;
     const nameValidation = registerName.length > minNameLength;
     return !emailValidation || !passwordValidation || !nameValidation;
+  };
+
+  const register = async (event) => {
+    event.preventDefault();
+
+    const userRegister = {
+      name: registerName,
+      email: registerEmail,
+      password: registerPassword,
+    };
+
+    axios.post(url, userRegister)
+      .then((data) => {
+        history.push('/customer/products');
+        return data;
+      })
+      .catch(() => setFailedTryRegister(true));
   };
 
   return (
@@ -44,12 +65,13 @@ export default function Register() {
         <button
           data-testid="common_register__button-register"
           disabled={ validateRegister() }
+          onClick={ (event) => register(event) }
           type="button"
         >
           CADASTRAR
         </button>
         {
-          (failedTryLogin)
+          (failedTryRegister)
             ? (
               <p data-testid="common_register__element-invalid_register">
                 {

@@ -10,7 +10,7 @@ const register = async (req, res, next) => {
       return res.status(409).json({ message: 'already registred' });
     }
 
-    return res.status(200).json(regist);
+    return res.status(201).json(regist);
   } catch (error) {
     next(error);
   }

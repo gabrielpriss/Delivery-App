@@ -1,10 +1,10 @@
+const md5 = require('md5');
 const { users } = require('../database/models');
-const { hash } = require('./crypto');
 
 const login = async (userData) => {
   const { email, password } = userData;
 
-  const hashpass = hash(password);
+  const hashpass = md5(password);
   
   const user = await users.findOne({
     where: {
@@ -12,9 +12,11 @@ const login = async (userData) => {
     },
   });
   
-  if (!user || hashpass !== user.password) throw new Error('Not Found');
+  if (!user || hashpass !== user.password) {
+    return { message: 'User not found' };
+  }
 
-  return user;
+  return { user };
 };
 
 module.exports = { login };

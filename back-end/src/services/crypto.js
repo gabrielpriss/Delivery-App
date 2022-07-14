@@ -1,8 +1,7 @@
-const crypto = require('crypto');
+const md5 = require('md5');
 
 async function hash(data) {
-    const hashed = crypto.createHash('md5').update(data).digest('hex');
-    console.log(data, hashed);
+    const hashed = md5(data);
     return hashed;
 }
 

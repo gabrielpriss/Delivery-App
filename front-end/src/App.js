@@ -11,7 +11,7 @@ export default function App() {
         <Redirect exact from="/" to="/login" />
         <Route exact path="/login" component={ Login } />
         <Route exact path="/register" component={ Register } />
-        <Route exact path="/produtos" component={ Produtos } />
+        <Route exact path="/customer/products" component={ Produtos } />
       </Switch>
     </BrowserRouter>
   );
