@@ -18,14 +18,14 @@ const environment = NODE_ENV || "test";
 const suffix = {
   prod: "",
   production: "",
-  dev: "-dev",
-  development: "-dev",
-  test: "-test",
+  dev: "dev",
+  development: "dev",
+  test: "test",
 };
 
 const defaultSuffix = suffix[environment] || suffix.test;
 
-const defaultDB = `${MYSQL_DB_NAME || "delivery-app"}${defaultSuffix}`;
+const defaultDB = `${MYSQL_DB_NAME || "deliveryapp"}${defaultSuffix}`;
 
 module.exports = {
   environment,

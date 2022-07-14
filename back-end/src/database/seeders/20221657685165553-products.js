@@ -19,7 +19,7 @@ module.exports = {
         {
           id: 3,
           name: 'Antarctica Pilsen 300ml',
-          price: 2.49,
+          price: 2.49,  
           "url_image": "http://localhost:3001/images/antarctica_pilsen_300ml.jpg"
         },
         {
@@ -44,13 +44,13 @@ module.exports = {
           id: 7,
           name: 'Becks 330ml',
           price: 4.99,
-          "url_image": "'http://localhost:3001/images/becks_330ml.jpg"
+          "url_image": "http://localhost:3001/images/becks_330ml.jpg"
         },
         {
           id: 8,
           name: 'Brahma Duplo Malte 350ml',
           price: 2.79,
-          "url_image": "'http://localhost:3001/images/brahma_duplo_malte_350ml.jpg"
+          "url_image": "http://localhost:3001/images/brahma_duplo_malte_350ml.jpg"
         },
         {
           id: 9,
@@ -62,7 +62,7 @@ module.exports = {
           id: 10,
           name: 'Skol Beats Senses 269ml',
           price: 3.57,
-          "url_image": "'http://localhost:3001/images/skol_beats_senses_269ml.jpg"
+          "url_image": "http://localhost:3001/images/skol_beats_senses_269ml.jpg"
         },
         {
           id: 11,

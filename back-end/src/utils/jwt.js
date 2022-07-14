@@ -7,7 +7,7 @@ const jwtConfig = {
   expiresIn: '20d',
 };
 
-const tokenSign = (payload) => jwt.sign(payload, secret, jwtConfig);
+const tokenSign = (payload) => jwt.sign({ payload }, secret, jwtConfig);
 
 const tokenVerify = (token) => jwt.verify(token, secret);
 

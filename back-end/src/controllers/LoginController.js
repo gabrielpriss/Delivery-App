@@ -1,4 +1,5 @@
 const loginService = require('../services/LoginService');
+const { tokenSign } = require('../utils/jwt');
 
 const login = async (req, res, next) => {
   try {
@@ -10,7 +11,11 @@ const login = async (req, res, next) => {
       return res.status(404).json({ message });
     }
 
-    return res.status(200).json(user);
+    const token = tokenSign(user.id);
+
+    const { id, name, role } = user;
+
+    return res.status(200).json({ id, name, email, role, token });
   } catch (error) {
     next(error);
   }

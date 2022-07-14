@@ -1,5 +1,5 @@
 # Data-testids
-- 1: common_login__input-email
+<!-- - 1: common_login__input-email
 - 2: common_login__input-password
 - 3: common_login__button-login
 - 4: common_login__button-register
@@ -7,12 +7,12 @@
 - 6: common_register__input-name
 - 7: common_register__input-email
 - 8: common_register__input-password
-- 9: common_register__button-register
-- 10: common_register__element-invalid_register [Elemento oculto (Mensagens de erro)]
+- 9: common_register__button-register -->
+<!-- - 10: common_register__element-invalid_register [Elemento oculto (Mensagens de erro)]
 - 11: customer_products__element-navbar-link-products
 - 12: customer_products__element-navbar-link-orders
 - 13: customer_products__element-navbar-user-full-name
-- 14: customer_products__element-navbar-link-logout
+- 14: customer_products__element-navbar-link-logout -->
 - 15: customer_products__element-card-title-<id>
 - 16: customer_products__element-card-price-<id>
 - 17: customer_products__img-card-bg-image-<id>
