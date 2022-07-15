@@ -1,11 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import UserHeader from '../components/UserHeader';
 import '../css/products.css';
 import ProductCard from '../components/ProductCard';
+import Context from '../context/context';
 
 export default function Produtos() {
+  const { itemList } = useContext(Context);
+
+  const history = useHistory();
+
   const [allProducts, setAllProducts] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const url = 'http://localhost:3001/products';
   const getAllProducts = () => {
@@ -20,7 +27,10 @@ export default function Produtos() {
 
   useEffect(() => {
     getAllProducts();
-  }, []);
+    const total = itemList
+      .reduce((acc, cv) => acc + (cv.quantity * cv.price), 0);
+    setTotalPrice(total);
+  }, [itemList]);
 
   console.log(allProducts);
 
@@ -28,6 +38,14 @@ export default function Produtos() {
     <div className="products">
       <UserHeader />
       <div className="products-container">
+        {/* <button
+          type="button"
+          data-testid="customer_products__button"
+          disabled={ totalPrice === 0 }
+          onClick={ () => history.push('/customer/checkout') }
+        >
+          Carrinho
+        </button> */}
         {
           allProducts.map((product) => (
             <ProductCard
@@ -83,6 +101,18 @@ export default function Produtos() {
           //   </div>
           // ))
         }
+        <button
+          type="button"
+          data-testid="customer_products__button-cart"
+          onClick={ () => history.push('/customer/checkout') }
+          disabled={ totalPrice === 0 }
+        >
+          <p
+            data-testid="customer_products__checkout-bottom-value"
+          >
+            { totalPrice.toFixed(2).replace(/\./, ',') }
+          </p>
+        </button>
       </div>
     </div>
 
