@@ -20,24 +20,6 @@ const validateEmail = (req, res, next) => {
     next();
 };
 
-const validatePassword = (req, res, next) => {
-    const { password } = req.body;
-
-    if (password === '') {
-        return res.status(400).json({ message: '"password" is not allowed to be empty' });
-    }
-
-    if (password.length < 6) {
-        return res.status(400).json({ message: '"password" must be 6 character length' });
-    }
-
-    if (!password) {
-        return res.status(400).json({ message: '"password" is required' });
-    }
-
-    next();
-};
-
 const validateUser = (req, res, next) => {
     const { name } = req.body;
 
@@ -51,6 +33,24 @@ const validateUser = (req, res, next) => {
 
     if (!name) {
         return res.status(400).json({ message: '"name" is required' });
+    }
+
+    next();
+};
+
+const validatePassword = (req, res, next) => {
+    const { password } = req.body;
+
+    if (password === '') {
+        return res.status(400).json({ message: '"password" is not allowed to be empty' });
+    }
+
+    if (password.length < 6) {
+        return res.status(400).json({ message: '"password" must be 6 character length' });
+    }
+
+    if (!password) {
+        return res.status(400).json({ message: '"password" is required' });
     }
 
     next();

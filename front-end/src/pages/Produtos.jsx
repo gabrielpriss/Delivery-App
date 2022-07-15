@@ -7,7 +7,7 @@ import ProductCard from '../components/ProductCard';
 export default function Produtos() {
   const [allProducts, setAllProducts] = useState([]);
 
-  const url = 'http://localhost:3005/products';
+  const url = 'http://localhost:3001/products';
   const getAllProducts = () => {
     axios.get(url)
       .then((data) => setAllProducts(data.data))

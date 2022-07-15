@@ -4,7 +4,7 @@ import '../css/login.css';
 import axios from 'axios';
 
 export default function Login() {
-  const url = 'http://localhost:3005/login';
+  const url = 'http://localhost:3001/login';
   const history = useHistory();
   const minPasswordLength = 6;
   const [inputUser, setInputUser] = useState('');

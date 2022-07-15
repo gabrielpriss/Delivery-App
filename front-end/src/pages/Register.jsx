@@ -1,17 +1,17 @@
 import axios from 'axios';
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import '../css/register.css';
 
 export default function Register() {
   const url = 'http://localhost:3001/register';
-  const history = useHistory();
   const minPasswordLength = 6;
   const minNameLength = 12;
   const [registerName, setRegisterName] = useState('');
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
   const [failedTryRegister, setFailedTryRegister] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
 
   const validateRegister = () => {
     const emailValidation = (/\S+@\S+\.\S+/).test(registerEmail);
@@ -31,11 +31,17 @@ export default function Register() {
 
     axios.post(url, userRegister)
       .then((data) => {
-        history.push('/customer/products');
-        return data;
+        localStorage.setItem('user', JSON.stringify(data.data));
+        setIsLogged(true);
       })
       .catch(() => setFailedTryRegister(true));
   };
+
+  useEffect(() => {
+    setFailedTryRegister(false);
+  }, [registerEmail, registerName, registerPassword]);
+
+  if (isLogged) return <Redirect to="customer/products" />;
 
   return (
     <div className="register">

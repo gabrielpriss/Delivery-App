@@ -1,4 +1,5 @@
 const RegisterService = require('../services/RegisterService');
+const { tokenSign } = require('../utils/jwt');
 
 const register = async (req, res, next) => {
   try {
@@ -10,7 +11,10 @@ const register = async (req, res, next) => {
       return res.status(409).json({ message: 'already registred' });
     }
 
-    return res.status(201).json(regist);
+    const token = tokenSign(regist.id);
+    const { id } = regist;
+
+    return res.status(201).json({ id, name, email, token });
   } catch (error) {
     next(error);
   }
