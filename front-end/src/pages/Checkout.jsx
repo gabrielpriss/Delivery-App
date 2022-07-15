@@ -24,8 +24,14 @@ export default function Checkout() {
       <p
         data-testid="customer_checkout__element-order-total-price"
       >
-        { totalPrice }
+        { `R$ ${totalPrice}` }
       </p>
+      <button
+        type="button"
+        data-testid="customer_products__checkout-bottom-value"
+      >
+        Checkout
+      </button>
     </div>
   );
 }

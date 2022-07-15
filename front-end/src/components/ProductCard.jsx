@@ -13,10 +13,14 @@ export default function ProductCard(props) {
   } = useContext(Context);
 
   const [count, setCount] = useState(0);
+  // const [valueInput, setValueInput] = (0);
 
   useEffect(() => {
     const product = {
-      productId: id, name, quantity: count, price: Number(price.split(',').join('.')),
+      productId: id,
+      name,
+      quantity: Number(count),
+      price: Number(price.split(',').join('.')),
     };
 
     let allProducts = [...itemList];
@@ -34,7 +38,13 @@ export default function ProductCard(props) {
 
     setItemList(allProducts);
     console.log(allProducts);
-  }, [count, id, itemList, name, price, setItemList]);
+  }, [count]);
+
+  function handleChange(e) {
+    if (Number(e.target.value)) {
+      setCount(Number(e.target.value));
+    }
+  }
 
   return (
     <div>
@@ -62,9 +72,8 @@ export default function ProductCard(props) {
           </button>
           <input
             data-testid={ inputId }
-            type="number"
-            value={ count }
-            onChange={ ({ target }) => setCount(Number(target.value)) }
+            value={ Number(count) }
+            onChange={ handleChange }
           />
           <button
             data-testid={ buttonRmId }
