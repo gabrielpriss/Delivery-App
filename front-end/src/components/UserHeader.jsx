@@ -18,8 +18,10 @@ export default function UserHeader() {
           Produtos
         </h2>
         <button
+          type="button"
           onClick={ () => history.push('/customer/checkout') }
-          data-testid="customer_products__element-navbar-link-orders">
+          data-testid="customer_products__element-navbar-link-orders"
+        >
           Meus Pedidos
         </button>
       </div>

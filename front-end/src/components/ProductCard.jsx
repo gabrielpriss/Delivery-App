@@ -34,7 +34,7 @@ export default function ProductCard(props) {
 
     setItemList(allProducts);
     console.log(allProducts);
-  }, [count]);
+  }, [count, id, itemList, name, price, setItemList]);
 
   return (
     <div>
