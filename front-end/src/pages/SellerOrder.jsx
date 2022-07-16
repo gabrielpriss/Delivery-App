@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import UserHeader from '../components/UserHeader';
 import Context from '../context/context';
 import convertDate from '../utils/dateFormat';
@@ -9,17 +10,19 @@ function SellerOrder() {
   const [orders, setOrders] = useState([]);
 
   const resultApi = useCallback(async () => {
+    console.log(userData);
     const setAxios = axios.create({
       baseURL: 'http://localhost:3001',
       headers: {
         authorization: userData.token,
-        id: userData.userId,
+        id: userData.id,
       },
     });
 
-    const result = await setAxios.get(`/sales/seller/${userData.userId}`);
-    setOrders(result);
-  }, [userData.token, userData.userId]);
+    const result = await setAxios.get(`/sales/seller/${userData.id}`);
+    setOrders(result.data);
+    console.log(result.data);
+  }, [userData]);
 
   useEffect(() => {
     resultApi();
@@ -29,8 +32,12 @@ function SellerOrder() {
     <div>
       <UserHeader />
       {
-        orders.map((item) => (
-          <div
+        orders.length > 0 && orders.map((item) => (
+          <Link
+            to={ {
+              pathname: `/seller/orders/${item.id}`,
+              state: { fromDashboard: true },
+            } }
             key={ item.id }
           >
             <p
@@ -58,7 +65,7 @@ function SellerOrder() {
             >
               { item.deliveryAddress }
             </p>
-          </div>
+          </Link>
         ))
       }
     </div>

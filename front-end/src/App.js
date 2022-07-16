@@ -7,12 +7,14 @@ import Produtos from './pages/Produtos';
 import Register from './pages/Register';
 import Orders from './pages/Orders';
 import SellerOrder from './pages/SellerOrder';
+import SellerOrderDetails from './pages/SellerOrderDetails';
 
 export default function App() {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/customer/orders/:id" component={ OrdersDetais } />
+        <Route exact path="/seller/orders/id" component={ SellerOrderDetails } />
         <Redirect exact from="/" to="/login" />
         <Route exact path="/login" component={ Login } />
         <Route exact path="/register" component={ Register } />
