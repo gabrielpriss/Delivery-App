@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import UserHeader from '../components/UserHeader';
 import convertDate from '../utils/dateFormat';
 
 export default function Orders() {
@@ -12,6 +13,7 @@ export default function Orders() {
 
   return (
     <div>
+      <UserHeader />
       {
         orders.length > 0 && orders.map((item) => (
           <Link

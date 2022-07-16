@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useCallback, useState } from 'react';
 import { useRouteMatch, useParams } from 'react-router-dom';
+import UserHeader from '../components/UserHeader';
 import Context from '../context/context';
 import { itemId, orderId, quantityId, statusId, subTotalId } from '../utils/dataTestIds';
 import convertDate from '../utils/dateFormat';
@@ -15,12 +16,12 @@ export default function OrdersDetais() {
   const [order, setOrder] = useState([]);
 
   const getApiDetails = useCallback(async () => {
-    const resultApi = axios.create({
+    const setAxios = axios.create({
       baseURL: 'http://localhost:3001',
       headers: { authorization: userData.token },
     });
 
-    const result = await resultApi.get(`/sales/order/${params.id}`);
+    const result = await setAxios.get(`/sales/order/${params.id}`);
     setOrder(result.data);
   }, [userData, params]);
 
@@ -41,6 +42,7 @@ export default function OrdersDetais() {
 
   return (
     <div>
+      <UserHeader />
       <p
         data-testid={ `${orderId}` }
       >

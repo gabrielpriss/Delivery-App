@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useContext, useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import UserHeader from '../components/UserHeader';
 import Context from '../context/context';
 
 export default function Checkout() {
@@ -80,6 +81,7 @@ export default function Checkout() {
 
   return (
     <div>
+      <UserHeader />
       {
         itemList.map((item, index) => (
           <div

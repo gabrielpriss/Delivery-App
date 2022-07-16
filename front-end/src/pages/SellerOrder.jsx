@@ -1,0 +1,68 @@
+import axios from 'axios';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import UserHeader from '../components/UserHeader';
+import Context from '../context/context';
+import convertDate from '../utils/dateFormat';
+
+function SellerOrder() {
+  const { userData } = useContext(Context);
+  const [orders, setOrders] = useState([]);
+
+  const resultApi = useCallback(async () => {
+    const setAxios = axios.create({
+      baseURL: 'http://localhost:3001',
+      headers: {
+        authorization: userData.token,
+        id: userData.userId,
+      },
+    });
+
+    const result = await setAxios.get(`/sales/seller/${userData.userId}`);
+    setOrders(result);
+  }, [userData.token, userData.userId]);
+
+  useEffect(() => {
+    resultApi();
+  }, [resultApi]);
+
+  return (
+    <div>
+      <UserHeader />
+      {
+        orders.map((item) => (
+          <div
+            key={ item.id }
+          >
+            <p
+              data-testid={ `seller_orders__element-order-id-${item.id}` }
+            >
+              { item.id }
+            </p>
+            <p
+              data-testid={ `seller_orders__element-delivery-status-${item.id}` }
+            >
+              { item.status }
+            </p>
+            <p
+              data-testid={ `seller_orders__element-order-date-${item.id}` }
+            >
+              { convertDate(item.saleDate) }
+            </p>
+            <p
+              data-testid={ `seller_orders__element-card-price-${item.id}` }
+            >
+              { item.totalPrice }
+            </p>
+            <p
+              data-testid={ `seller_orders__element-card-address-${item.id}` }
+            >
+              { item.deliveryAddress }
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  );
+}
+
+export default SellerOrder;
