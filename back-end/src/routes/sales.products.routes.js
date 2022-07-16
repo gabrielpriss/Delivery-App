@@ -1,7 +1,9 @@
 const express = require('express');
 const { getAllProductSalesController, createProductSalesController,
   getByIdProductSalesController, updateProductSalesController,
-  deleteProductSalesController } = require('../controllers/salesProducts');
+  deleteProductSalesController, createManyProductsController,
+} = require('../controllers/salesProducts');
+const { auth } = require('../middlewares/auth');
 
 const productsSalesRoutes = express.Router();
 
@@ -10,5 +12,6 @@ productsSalesRoutes.get('/:id', getByIdProductSalesController.getById);
 productsSalesRoutes.put('/:id', updateProductSalesController.update);
 productsSalesRoutes.post('/', createProductSalesController.create);
 productsSalesRoutes.delete('/:id', deleteProductSalesController.deleteId);
+productsSalesRoutes.post('/many', auth, createManyProductsController.createMany);
 
 module.exports = productsSalesRoutes;

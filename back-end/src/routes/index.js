@@ -14,10 +14,10 @@ Routes.use('/register', registerRoutes);
 
 Routes.use('/products', productsRoutes);
 
-Routes.use('/productssales', productsSalesRoutes);
+Routes.use('/salesproducts', productsSalesRoutes);
 
 Routes.use('/sales', salesRoutes);
 
-Routes.use('/users', userRoutes);
+Routes.use('/sellers', userRoutes);
 
 module.exports = { Routes };

@@ -13,7 +13,6 @@ export default function ProductCard(props) {
   } = useContext(Context);
 
   const [count, setCount] = useState(0);
-  // const [valueInput, setValueInput] = (0);
 
   useEffect(() => {
     const product = {
@@ -21,6 +20,7 @@ export default function ProductCard(props) {
       name,
       quantity: Number(count),
       price: Number(price.split(',').join('.')),
+      subTotal: Number(price.split(',').join('.')) * Number(count),
     };
 
     let allProducts = [...itemList];

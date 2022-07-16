@@ -5,6 +5,8 @@ import Context from './context';
 function CartProvider({ children }) {
   const [itemList, setItemList] = useState([]);
   const [totalPrice, setTotalPrice] = useState('');
+  const [userData, setUserData] = useState('');
+  const [sellers, setSellers] = useState([]);
 
   useEffect(() => {
     setItemList([]);
@@ -15,6 +17,12 @@ function CartProvider({ children }) {
       value={ {
         itemList,
         setItemList,
+
+        sellers,
+        setSellers,
+
+        userData,
+        setUserData,
 
         totalPrice,
         setTotalPrice,

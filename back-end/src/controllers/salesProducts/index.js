@@ -3,6 +3,7 @@ const createProductSalesController = require('./create');
 const getByIdProductSalesController = require('./getById');
 const updateProductSalesController = require('./update');
 const deleteProductSalesController = require('./delete');
+const createManyProductsController = require('./createMany');
 
 module.exports = {
   getAllProductSalesController,
@@ -10,4 +11,5 @@ module.exports = {
   getByIdProductSalesController,
   updateProductSalesController,
   deleteProductSalesController,
+  createManyProductsController,
 };

@@ -4,7 +4,7 @@ const create = async (sale) => {
   const {
     userEmail, sellerEmail,
     totalPrice, deliveryAddress,
-    deliveryNumber, saleDate,
+    deliveryNumber,
     status } = sale;
 
   const user = await users.findOne({ where: { email: userEmail } });
@@ -20,7 +20,6 @@ const create = async (sale) => {
       totalPrice,
       deliveryAddress,
       deliveryNumber,
-      saleDate,
       status });
 
   return { result };

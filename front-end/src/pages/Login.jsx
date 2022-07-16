@@ -26,8 +26,6 @@ export default function Login() {
       password: inputPassword,
     };
 
-    console.log(userLogin);
-
     axios.post(url, userLogin)
       .then((data) => {
         localStorage.setItem('user', JSON.stringify(data.data));
@@ -36,8 +34,16 @@ export default function Login() {
       .catch(() => setFailedTryLogin(true));
   };
 
+  const isLoggedIn = () => {
+    const user = localStorage.getItem('user');
+    if (user) {
+      history.push('/customer/products');
+    }
+  };
+
   useEffect(() => {
     setFailedTryLogin(false);
+    isLoggedIn();
   }, [inputUser, inputPassword]);
 
   if (isLogged) return <Redirect to="customer/products" />;
