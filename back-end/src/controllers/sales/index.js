@@ -5,6 +5,7 @@ const updateSalesController = require('./update');
 const deleteSalesController = require('./delete');
 const getByOrderIdController = require('./getByOrderId');
 const getAllBySellerIdController = require('./getAllBySellerId');
+const updateStatusController = require('./updateStatus');
 
 module.exports = {
   getAllSalesController,
@@ -14,4 +15,5 @@ module.exports = {
   deleteSalesController,
   getByOrderIdController,
   getAllBySellerIdController,
+  updateStatusController,
 };
