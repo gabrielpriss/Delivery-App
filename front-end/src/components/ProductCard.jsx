@@ -13,7 +13,6 @@ export default function ProductCard(props) {
   } = useContext(Context);
 
   const [count, setCount] = useState(0);
-  // const [valueInput, setValueInput] = (0);
 
   useEffect(() => {
     const product = {

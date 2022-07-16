@@ -2,9 +2,10 @@ import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Checkout from './pages/Checkout';
 import Login from './pages/Login';
-import OrdersDetais from './pages/Orders';
+import OrdersDetais from './pages/OrdersDetails';
 import Produtos from './pages/Produtos';
 import Register from './pages/Register';
+import Orders from './pages/Orders';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route exact path="/register" component={ Register } />
         <Route exact path="/customer/products" component={ Produtos } />
         <Route exact path="/customer/checkout" component={ Checkout } />
+        <Route exact path="/customer/orders" component={ Orders } />
       </Switch>
     </BrowserRouter>
   );
