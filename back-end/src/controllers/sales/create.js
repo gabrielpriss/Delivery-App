@@ -4,7 +4,7 @@ const create = async (req, res, next) => {
   try {
     const { userEmail, sellerEmail,
       totalPrice, deliveryAddress,
-      deliveryNumber, saleDate,
+      deliveryNumber,
       status } = req.body;
 
     const { result, message } = await service.create({
@@ -13,12 +13,11 @@ const create = async (req, res, next) => {
       totalPrice,
       deliveryAddress,
       deliveryNumber,
-      saleDate,
       status });
 
     if (message) return res.status(400).json({ message });
 
-    return res.status(201).json(result);    
+    return res.status(201).json({ saleId: result.id });    
   } catch (err) {
     next(err);
   }
