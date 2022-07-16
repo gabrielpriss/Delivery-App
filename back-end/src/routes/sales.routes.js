@@ -2,7 +2,7 @@ const express = require('express');
 const { createSalesController, getAllSalesController,
   getByIdSalesController, updateSalesController,
   deleteSalesController, getByOrderIdController,
-  getAllBySellerIdController,  updateStatusController
+  getAllBySellerIdController, updateStatusController,
 } = require('../controllers/sales');
 const { auth } = require('../middlewares/auth');
 
