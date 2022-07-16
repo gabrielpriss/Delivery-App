@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import UserHeader from '../components/UserHeader';
@@ -7,7 +7,7 @@ import ProductCard from '../components/ProductCard';
 import Context from '../context/context';
 
 export default function Produtos() {
-  const { itemList } = useContext(Context);
+  const { itemList, setSellers } = useContext(Context);
 
   const history = useHistory();
 
@@ -25,12 +25,19 @@ export default function Produtos() {
     }
   };
 
+  const requestSellerApi = useCallback(async () => {
+    axios.get('http://localhost:3001/sellers')
+      .then(({ data }) => setSellers(data.users))
+      .catch((error) => console.log(error));
+  }, [setSellers]);
+
   useEffect(() => {
     getAllProducts();
+    requestSellerApi();
     const total = itemList
       .reduce((acc, cv) => acc + (cv.quantity * cv.price), 0);
     setTotalPrice(total);
-  }, [itemList]);
+  }, [itemList, requestSellerApi]);
 
   console.log(allProducts);
 
@@ -38,14 +45,6 @@ export default function Produtos() {
     <div className="products">
       <UserHeader />
       <div className="products-container">
-        {/* <button
-          type="button"
-          data-testid="customer_products__button"
-          disabled={ totalPrice === 0 }
-          onClick={ () => history.push('/customer/checkout') }
-        >
-          Carrinho
-        </button> */}
         {
           allProducts.map((product) => (
             <ProductCard
@@ -63,43 +62,6 @@ export default function Produtos() {
               price={ product.price.replace(/\./, ',') }
             />
           ))
-          // allProducts.map((produto, index) => (
-          //   <div
-          //     data-testid={ `customer_products__element-card-price-${index + 1}` }
-          //     className="product-card"
-          //     key={ index }
-          //   >
-          //     <h3 data-testid="customer_products__element-card-title">
-          //       { produto.name }
-          //     </h3>
-          //     <img
-          //       data-testid="customer_products__img-card-bg-image"
-          //       src={ produto.urlImage }
-          //       alt={ produto.name }
-          //     />
-          //     <h3 data-testid="customer_products__element-card-price">
-          //       {`R$${produto.price}`}
-          //     </h3>
-          //     <div>
-          //       <button
-          //         data-testid="customer_products__button-card-add-item"
-          //         type="button"
-          //       >
-          //         +
-          //       </button>
-          //       <input
-          //         data-testid="customer_products__input-card-quantity"
-          //         type="number"
-          //       />
-          //       <button
-          //         data-testid="customer_products__button-card-rm-item"
-          //         type="button"
-          //       >
-          //         -
-          //       </button>
-          //     </div>
-          //   </div>
-          // ))
         }
         <button
           type="button"

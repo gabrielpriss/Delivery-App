@@ -21,6 +21,7 @@ export default function ProductCard(props) {
       name,
       quantity: Number(count),
       price: Number(price.split(',').join('.')),
+      subTotal: Number(price.split(',').join('.')) * Number(count),
     };
 
     let allProducts = [...itemList];
