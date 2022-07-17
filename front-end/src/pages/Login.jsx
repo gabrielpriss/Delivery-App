@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import '../css/login.css';
 import axios from 'axios';
+import Context from '../context/context';
 
 export default function Login() {
   const url = 'http://localhost:3001/login';
@@ -11,6 +12,8 @@ export default function Login() {
   const [inputPassword, setInputPassword] = useState('');
   const [failedTryLogin, setFailedTryLogin] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
+
+  const { setUserData } = useContext(Context);
 
   const validateLogin = () => {
     const emailValidation = (/\S+@\S+\.\S+/).test(inputUser);
@@ -28,25 +31,27 @@ export default function Login() {
 
     axios.post(url, userLogin)
       .then((data) => {
+        setUserData(data.data);
         localStorage.setItem('user', JSON.stringify(data.data));
         setIsLogged(true);
       })
       .catch(() => setFailedTryLogin(true));
   };
 
-  const isLoggedIn = () => {
-    const user = localStorage.getItem('user');
+  const isLoggedIn = useCallback(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
-      history.push('/customer/products');
+      if (user.role === 'customer') history.push('/customer/products');
+      if (user.role === 'seller') history.push('/seller/orders');
     }
-  };
+  }, [history]);
 
   useEffect(() => {
     setFailedTryLogin(false);
     isLoggedIn();
-  }, [inputUser, inputPassword]);
+  }, [inputUser, inputPassword, isLoggedIn]);
 
-  if (isLogged) return <Redirect to="customer/products" />;
+  if (isLogged) isLoggedIn();
 
   return (
     <div className="login">
