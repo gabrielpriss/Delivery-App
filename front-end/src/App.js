@@ -6,6 +6,7 @@ import OrdersDetais from './pages/OrdersDetails';
 import Produtos from './pages/Produtos';
 import Register from './pages/Register';
 import Orders from './pages/Orders';
+import Admin from './pages/Admin';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route exact path="/customer/products" component={ Produtos } />
         <Route exact path="/customer/checkout" component={ Checkout } />
         <Route exact path="/customer/orders" component={ Orders } />
+        <Route exact path="/admin/manage" component={ Admin } />
       </Switch>
     </BrowserRouter>
   );

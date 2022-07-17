@@ -18,6 +18,15 @@ export default function Login() {
     return !emailValidation || !passwordValidation;
   };
 
+  const selectRoute = (role) => {
+    switch (role) {
+    case 'administrator':
+      history.push('/admin/manage');
+      break;
+    default:
+    }
+  };
+
   const login = async (event) => {
     event.preventDefault();
 
@@ -29,21 +38,27 @@ export default function Login() {
     axios.post(url, userLogin)
       .then((data) => {
         localStorage.setItem('user', JSON.stringify(data.data));
+        selectRoute(data.data.role);
         setIsLogged(true);
       })
       .catch(() => setFailedTryLogin(true));
   };
 
-  const isLoggedIn = () => {
-    const user = localStorage.getItem('user');
-    if (user) {
-      history.push('/customer/products');
-    }
-  };
+  // const isLoggedIn = () => {
+  //   const user = localStorage.getItem('user');
+  //   switch (user.role) {
+  //   case 'administrator':
+  //     history.push('/admin/manage');
+  //     break;
+  //   default:
+  //     history.push('/customer/products');
+  //   }
+  // };
+
+  // isLoggedIn();
 
   useEffect(() => {
     setFailedTryLogin(false);
-    isLoggedIn();
   }, [inputUser, inputPassword]);
 
   if (isLogged) return <Redirect to="customer/products" />;

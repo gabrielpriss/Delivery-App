@@ -56,4 +56,14 @@ const validatePassword = (req, res, next) => {
     next();
 };
 
-module.exports = { validateEmail, validatePassword, validateUser };
+const validateRole = (req, res, next) => {
+    const { role } = req.body;
+
+    if (role !== 'customer' && role !== 'seller' && role !== 'admin' && role !== '') {
+        return res.status(400).json({ message: 'Invalid role ' });
+    }
+
+    next();
+};
+
+module.exports = { validateEmail, validatePassword, validateUser, validateRole };
