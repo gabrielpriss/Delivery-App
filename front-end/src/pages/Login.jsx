@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import '../css/login.css';
 import axios from 'axios';
+import Context from '../context/context';
 
 export default function Login() {
   const url = 'http://localhost:3001/login';
@@ -12,19 +13,12 @@ export default function Login() {
   const [failedTryLogin, setFailedTryLogin] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
 
+  const { setUserData } = useContext(Context);
+
   const validateLogin = () => {
     const emailValidation = (/\S+@\S+\.\S+/).test(inputUser);
     const passwordValidation = inputPassword.length >= minPasswordLength;
     return !emailValidation || !passwordValidation;
-  };
-
-  const selectRoute = (role) => {
-    switch (role) {
-    case 'administrator':
-      history.push('/admin/manage');
-      break;
-    default:
-    }
   };
 
   const login = async (event) => {
@@ -37,31 +31,28 @@ export default function Login() {
 
     axios.post(url, userLogin)
       .then((data) => {
+        setUserData(data.data);
         localStorage.setItem('user', JSON.stringify(data.data));
-        selectRoute(data.data.role);
         setIsLogged(true);
       })
       .catch(() => setFailedTryLogin(true));
   };
 
-  // const isLoggedIn = () => {
-  //   const user = localStorage.getItem('user');
-  //   switch (user.role) {
-  //   case 'administrator':
-  //     history.push('/admin/manage');
-  //     break;
-  //   default:
-  //     history.push('/customer/products');
-  //   }
-  // };
-
-  // isLoggedIn();
+  const isLoggedIn = useCallback(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      if (user.role === 'customer') history.push('/customer/products');
+      if (user.role === 'seller') history.push('/seller/orders');
+      if (user.role === 'administrator') history.push('/admin/manage');
+    }
+  }, [history]);
 
   useEffect(() => {
     setFailedTryLogin(false);
-  }, [inputUser, inputPassword]);
+    isLoggedIn();
+  }, [inputUser, inputPassword, isLoggedIn]);
 
-  if (isLogged) return <Redirect to="customer/products" />;
+  if (isLogged) isLoggedIn();
 
   return (
     <div className="login">
