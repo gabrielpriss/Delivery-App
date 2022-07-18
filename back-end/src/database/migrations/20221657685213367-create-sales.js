@@ -5,7 +5,7 @@ module.exports = {
     await queryInterface.createTable("sales", {
     id: {
       allowNull: false,
-      autoIncremente: true,
+      autoIncrement: true,
       primaryKey: true,
       type: Sequelize.INTEGER,
     },
@@ -16,9 +16,9 @@ module.exports = {
         model: "users",
         key: "id",
       },
-      onUpdate: "CASCADE",
-      onDelete: "CASCADE",
-      field: 'user_id'
+      field: 'user_id',
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
     },
     sellerId: {
         allowNull: false,
@@ -27,12 +27,12 @@ module.exports = {
           model: "users",
           key: "id",
         },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
-        field: 'seller_id'
+        field: 'seller_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
     },
     totalPrice: {
-      type: Sequelize.DECIMAL,
+      type: Sequelize.DECIMAL(6, 2),
       field: 'total_price'
     },
     deliveryAddress: {
@@ -45,7 +45,8 @@ module.exports = {
     },
     saleDate: {
       type: Sequelize.DATE,
-      field: 'sale_dale'
+      defaultValue: Sequelize.fn('now'),
+      field: 'sale_date'
     },
     status: {
       type: Sequelize.STRING,

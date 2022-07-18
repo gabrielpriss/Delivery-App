@@ -1,0 +1,36 @@
+.login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+}
+
+.login-form {
+  align-items: center;
+  background-color: #f1f1f1;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-evenly;
+  width: 20%;
+}
+
+.login-form input, button {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 15px;
+  font-size: 16px;
+  height: 40px;
+  outline: none;
+  width: 60%;
+}
+
+.login-form button {
+  cursor: pointer;
+}
+
+.login-form input::placeholder {
+  font-size: 16px;
+  text-align: center;
+}

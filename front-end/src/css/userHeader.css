@@ -1,0 +1,27 @@
+.user-header {
+  align-items: center;
+  background-color: green;
+  color: white;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+}
+
+.user-first-container, .user-second-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+}
+
+/* .user-second-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 40%;
+} */
+
+.user-second-container button {
+  height: 20px;
+  width: 15%;
+}
