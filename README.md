@@ -16,13 +16,13 @@ Esse projeto foi desenvolvido em grupo e fiquei responsável principalmente pela
       * `cd gabrielpriss/Delivery-App.git`
 
   2. Instale as dependências
-    * `npm install
+    * `npm install`
   
   3. Variáveis de ambiente
     
  - Você precisa configurar as variáveis globais do MySQL. 
 
- - Faça essas configurações também para as variáveis de ambiente usadas nesses arquivos:
+ - Faça essas configurações para as variáveis de ambiente usadas nesse arquivo:
 
   `./backend/.env`
 
