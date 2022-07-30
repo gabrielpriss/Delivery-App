@@ -38,13 +38,13 @@ Esse projeto foi desenvolvido em grupo e fiquei responsável principalmente pela
 
   ```
 
-  - É essencial usar essas 3 variáveis no arquivo acima:**
+  - É essencial usar essas 3 variáveis no arquivo acima:
 	* `host: process.env.DB_HOST`;
 	* `user: process.env.DB_USER`;
 	* `password: process.env.DB_PASS`.
 
   4. Iniciar os serviços MySQL
-	* `exemplo`
+	* Exemplo:
 
 	* sudo service mysql start
 
