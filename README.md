@@ -2,10 +2,16 @@
 
 Esse projeto foi desenvolvido em grupo e fiquei responsável principalmente pela parte de back-end. O objetivo é desenvolver um site para uma distribuidora de cervejas que está se informatizando! 🚀 "O negócio, antes focado em um local específico da cidade, passou a receber uma quantidade massiva de encomendas de outros pontos, expandindo sua atuação via delivery." 🍺 Nessa aplicação, nosso grupo foi responsável por criar e integrar tanto o back-end quanto o front-end. O projeto não é só codar, mas também é trabalhar em equipe!
 
-# Funções
-  - Ter acesso via login: tanto clientes como pessoas vendedoras, que administram o sistema, devem ter acesso ao aplicativo via login, porém para funções diferentes: (1) A pessoa cliente, que compra da lista de produtos; (2) A pessoa vendedora, que aprova, prepara e entrega; (3) A pessoa administradora, que gerencia quem usa o aplicativo;
-  - Fazer a comunicação entre clientes e pessoas vendedoras: a pessoa cliente faz o pedido via "carrinho de compras" e a pessoa vendedora aprova, prepara e envia esse pedido. Quando o produto é recebido por quem comprou, essa pessoa marca o pedido como "recebido". Ambos devem possuir detalhes sobre seus pedidos;
-  - Se a pessoa cliente faz o pedido, o mesmo deve aparecer para a pessoa vendedora em seu dash de pedidos após a atualização da página. A pessoa cliente, por sua vez, deve ter as informações sobre seu pedido quando sua página for atualizada, ou seja, ter informações se o pedido está sendo preparado ou se já saiu pra entrega;
+<details>
+  <summary><strong>Funções</strong></summary><br />
+    # Funções
+      - Acesso via login: tanto clientes como pessoas vendedoras, devem ter acesso ao aplicativo via login, porém para funções diferentes: (1) A pessoa cliente, que    compra da lista de produtos; (2) A pessoa vendedora, que aprova, prepara e entrega; (3) A pessoa administradora, que gerencia quem usa o aplicativo;
+      - Comunicação entre clientes e pessoas vendedoras: a pessoa cliente faz o pedido via "carrinho de compras" e a pessoa vendedora aprova, prepara e envia esse pedido. Quando o produto é recebido por quem comprou, essa pessoa marca o pedido como "recebido". Ambos devem possuir detalhes sobre seus pedidos;
+      - Se a pessoa cliente faz o pedido, o mesmo deve aparecer para a pessoa vendedora em seu dash de pedidos após a atualização da página. A pessoa cliente, por sua vez, deve ter as informações sobre seu pedido quando sua página for atualizada, ou seja, ter informações se o pedido está sendo preparado ou se já saiu pra entrega;
+
+</details>
+
+<br>
 
 <details>
   <summary><strong>Rodando o projeto</strong></summary><br />
