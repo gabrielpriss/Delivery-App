@@ -72,3 +72,12 @@ Esse projeto foi desenvolvido em grupo durante o curso da Trybe e fiquei respons
   * Sua senha deve ter 6 caracteres
 
 </details>
+
+<details>
+  <summary><strong>Obrigado</strong></summary><br />
+
+ - Reforço que fiquei principalmente responsável pela aplicação back-end:
+
+  `./backend/src/*`
+
+</details>
