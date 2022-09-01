@@ -27,9 +27,9 @@ Esse projeto foi desenvolvido em grupo e fiquei responsável principalmente pela
     
  - Você precisa configurar as variáveis globais do MySQL. 
 
- - Faça essas configurações para as variáveis de ambiente usadas nesse arquivo:
+ - Use suas configurações para as variáveis de ambiente nesse arquivo:
 
-  `./backend/.env`
+  `./backend/.env-example`
 
   ```
   NODE_ENV=development
@@ -48,14 +48,22 @@ Esse projeto foi desenvolvido em grupo e fiquei responsável principalmente pela
 	* `user: process.env.DB_USER`;
 	* `password: process.env.DB_PASS`.
 
-  4. Iniciar os serviços MySQL
+  4. Renomear o  arquivo das variaveis de .env-example para .env
+  
+  5. Iniciar os serviços MySQL
 	* Exemplo:
 
 	* sudo service mysql start
 
-  5. Iniciar a aplicação
+  6. Iniciar a aplicação
 
 	* Na pasta raiz rodar o script responsável por iniciar o front e o back-end
 	* `npm start`
+  * O aplicativo será iniciado na url http://localhost:3000/
+  
+  7. Registrar seu usuário e logar
+  * Seu usuário deve ter 12 caracteres
+  * Seu email deve ser válido
+  * Sua senha deve ter 6 caracteres
 
 </details>
