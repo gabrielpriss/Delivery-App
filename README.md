@@ -76,7 +76,7 @@ Esse projeto foi desenvolvido em grupo durante o curso da Trybe e fiquei respons
 <details>
   <summary><strong>Obrigado</strong></summary><br />
 
- - Reforço que fiquei principalmente responsável pela aplicação back-end:
+ - Reforço que fiquei responsável principalmente pela aplicação back-end:
 
   `./backend/src/*`
 
