@@ -61,7 +61,12 @@ Esse projeto foi desenvolvido em grupo e fiquei responsável principalmente pela
 	* `npm start`
   * O aplicativo será iniciado na url http://localhost:3000/
   
-  7. Registrar seu usuário e logar
+  7. Registrar seu usuário e logar  <br />
+        <strong>Fluxo Pessoa Administradora</strong> <br />
+      - Para acessar como admin utilize o email `adm@deliveryapp.com` e senha `--adm2@21!!--`
+      
+        <strong>Fluxo Comum</strong> <br />
+      - Para acessar como pessoa comum registre e logue
   * Seu usuário deve ter 12 caracteres
   * Seu email deve ser válido
   * Sua senha deve ter 6 caracteres
