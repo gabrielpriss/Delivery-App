@@ -1,6 +1,6 @@
 # App de Delivery!
 
-Esse projeto foi desenvolvido em grupo e fiquei responsável principalmente pela parte de back-end. O objetivo é desenvolver um site para uma distribuidora de cervejas que está se informatizando! 🚀 "O negócio, antes focado em um local específico da cidade, passou a receber uma quantidade massiva de encomendas de outros pontos, expandindo sua atuação via delivery." 🍺 Nessa aplicação, nosso grupo foi responsável por criar e integrar tanto o back-end quanto o front-end. O projeto não é só codar, mas também é trabalhar em equipe!
+Esse projeto foi desenvolvido em grupo durante o curso da Trybe e fiquei responsável principalmente pela parte de back-end. O objetivo é desenvolver um site para uma distribuidora de cervejas que está se informatizando! 🚀 "O negócio, antes focado em um local específico da cidade, passou a receber uma quantidade massiva de encomendas de outros pontos, expandindo sua atuação via delivery." 🍺 Nessa aplicação, nosso grupo foi responsável por criar e integrar tanto o back-end quanto o front-end. O projeto não é só codar, mas também é trabalhar em equipe!
 
 <details>
   <summary><strong>Funções</strong></summary><br />
