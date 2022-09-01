@@ -18,7 +18,7 @@ Esse projeto foi desenvolvido em grupo e fiquei responsável principalmente pela
   1. Clone o repositório
     * `git clone git@github.com:gabrielpriss/Delivery-App.git`.
     * Entre na pasta do repositório que você acabou de clonar:
-      * `cd gabrielpriss/Delivery-App.git`
+      * `cd Delivery-App.git`
 
   2. Instale as dependências
     * `npm install`
