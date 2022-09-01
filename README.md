@@ -4,7 +4,7 @@ Esse projeto foi desenvolvido em grupo durante o curso da Trybe e fiquei respons
 
 <details>
   <summary><strong>Funções</strong></summary><br />
-      - Acesso via login: tanto clientes como pessoas vendedoras, devem ter acesso ao aplicativo via login, porém para funções diferentes: (1) A pessoa cliente, que    compra da lista de produtos; <br /> (2) A pessoa vendedora, que aprova, prepara e entrega; <br /> (3) A pessoa administradora, que gerencia quem usa o aplicativo;<br />
+      - Acesso via login: tanto clientes como pessoas vendedoras, devem ter acesso ao aplicativo via login, porém para funções diferentes: <br /> (1) A pessoa cliente, que    compra da lista de produtos; <br /> (2) A pessoa vendedora, que aprova, prepara e entrega; <br /> (3) A pessoa administradora, que gerencia quem usa o aplicativo;<br />
       - Comunicação entre clientes e pessoas vendedoras: a pessoa cliente faz o pedido via "carrinho de compras" e a pessoa vendedora aprova, prepara e envia esse pedido. Quando o produto é recebido por quem comprou, essa pessoa marca o pedido como "recebido". Ambos devem possuir detalhes sobre seus pedidos;<br />
       - Se a pessoa cliente faz o pedido, o mesmo deve aparecer para a pessoa vendedora em seu dash de pedidos após a atualização da página. A pessoa cliente, por sua vez, deve ter as informações sobre seu pedido quando sua página for atualizada, ou seja, ter informações se o pedido está sendo preparado ou se já saiu pra entrega;<br />
 
